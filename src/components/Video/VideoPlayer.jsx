@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Peer from "simple-peer"
 import io  from "socket.io-client";
+import './Video.css';
 
-const socket = io.connect('http://192.168.109.124:5000',{
+const socket = io.connect('http://localhost:5000',{
 	cors:{ origin: '*'}
 })
 
@@ -91,39 +92,45 @@ const App = () => {
 
 	return (
 		<div className="container">
+			<div className="inputBox">
+				<div>
+					<input placeholder="이름" value={name} onChange={(e) => setName(e.target.value)}></input>
+					<h2>내 RoomId : {me}</h2>
+					<input placeholder="RoomId" value={idToCall} onChange={(e) => setIdToCall(e.target.value)}></input>
+				</div>
+			</div>
 			<div className="video-container">
 				<div className="video">
-					{stream &&  <video playsInline muted={muted} ref={myVideo} autoPlay style={{ width: "500px" }} />}
+					{stream &&  <video playsInline muted={muted} ref={myVideo} autoPlay style={{ width: "600px" }} />}
 				</div>
 				<div className="video">
 					{callAccepted && !callEnded ?
-					<video playsInline muted={muted} ref={userVideo} autoPlay style={{ width: "500px"}} />:
+					<video playsInline muted={muted} ref={userVideo} autoPlay style={{ width: "600px"}} />:
 					null}
 				</div>
 			</div>
-			<div className="myId">
-				<input value={name} onChange={(e) => setName(e.target.value)}></input>
-				<div>{me}</div>
-				<input value={idToCall} onChange={(e) => setIdToCall(e.target.value)}></input>
-				<div className="call-button">
-					{callAccepted && !callEnded ? (
-						<button onClick={leaveCall}>연결종료</button>
-					) : (
-						<button onClick={() => callUser(idToCall)}>전화</button>
-					)}
-					{idToCall}
-				</div>
-			</div>
-			<div>
-				<button onClick={() => !muted ? setMuted(true) : setMuted(false)}>{muted ? "음소거중" : "음소거"}</button>
-			</div>
-			<div>
-				{receivingCall && !callAccepted ? (
-						<div className="caller">
-						<h1 >{name} is calling...</h1>
-						<button onClick={answerCall}>수신</button>
+			{receivingCall && !callAccepted ? (
+						<div className="call">
+							<div className="caller">
+								<h1 >{name} is calling...</h1>
+								<button onClick={answerCall}>수신</button>
+							</div>
+						</div>
+					) : null}
+			<div className="Box">
+				<div className="myId">
+					<div className="call-button">
+						{callAccepted && !callEnded ? (
+							<button onClick={leaveCall}>연결종료</button>
+						) : (
+							<button onClick={() => callUser(idToCall)}>전화</button>
+						)}
 					</div>
-				) : null}
+				</div>
+				<div>
+					<button className="muted" onClick={() => !muted ? setMuted(true) : setMuted(false)}>{muted ? "음소거중" : "음소거"}</button>
+				</div>
+					
 			</div>
 		</div>
 	)

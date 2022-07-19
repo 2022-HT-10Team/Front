@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import "./scroll.css";
 
 // 확인용 서버호출 X
 

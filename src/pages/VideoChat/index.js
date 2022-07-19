@@ -1,5 +1,5 @@
 import React from "react";
-import VideoPlayer from "../../components/VideoPlayer";
+import VideoPlayer from "../../components/Video/VideoPlayer";
 
 const VideoChat = () => {
   return (

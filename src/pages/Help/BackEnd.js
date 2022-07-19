@@ -76,7 +76,7 @@ const Button = styled.button`
   height: 48px;
 `;
 
-const All = () => {
+const BackEnd = () => {
   const [dtlist, setdtlist] = useState([]);
 
   const bringGraduate = async () => {
@@ -117,4 +117,4 @@ const All = () => {
   )
 }
 
-export default All;
+export default BackEnd;
