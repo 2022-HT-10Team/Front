@@ -5,7 +5,7 @@ import People from "./People";
 import styled from "styled-components";
 
 const Container = styled.main`
-  background: #F9FBFF;
+  background: #F6F9FF;
   margin: 0;
   width: 1240px;
   height: 100vh;

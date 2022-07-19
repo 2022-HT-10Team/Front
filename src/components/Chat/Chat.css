@@ -1,0 +1,123 @@
+::-webkit-scrollbar {
+  display: none;
+  }
+
+.str-chat {
+  background-color: white !important;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.str-chat-channel-list {  
+  width: 300px;
+  height: 704px;
+  padding-top: 40px;
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.04) !important;
+  z-index: 100;
+}
+
+.str-chat-channel {
+  width: 804px;
+  height: 704px;
+  border-radius: 0 20px 20px 0;
+}
+
+.str-chat__channel-list-messenger {
+  background-color: white !important;
+}
+
+.str-chat__channel-list-messenger__main {
+  width: 300px;
+  height: 74px;
+  padding: 0 !important;
+  margin: 20px 0 0 40px;
+}
+
+.str-chat-channel.messaging .str-chat__main-panel{
+  padding: 0 !important;
+  background-color: white !important;
+  border-radius: 0 20px 20px 0;
+}
+
+.str-chat__header-livestream {
+  margin-top: 40px;
+  background-color: white !important;
+  box-shadow: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  position: relative;
+}
+
+.messagePreview {
+  margin-left: 28px;
+}
+
+.messagePreview:last-child{
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.02em;
+  color: #A0A0A0;
+}
+
+.messagePreview div .user{
+  font-family: 'Noto Sans KR' !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  line-height: 26px !important;
+  letter-spacing: -0.02em !important;
+  color: #444444 !important;
+}
+
+.num {
+  font-family: 'Noto Sans KR' !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  line-height: 26px !important;
+  letter-spacing: -0.02em !important;
+  color: #C4CEE5 !important;
+  margin-left: 8px;
+}
+
+.videoBt {
+  position: absolute;
+  right: 9%;
+  top: 1%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('../../images/icon/Video.svg');
+}
+
+.rel {
+  position: relative;
+}
+
+.send{
+  position: absolute;
+  bottom: 29%;
+  right: 7%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.str-chat__textarea textarea{
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  width: 724px !important;
+  margin: 20px 0 20px 40px;
+}

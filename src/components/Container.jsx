@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
 const Cont = styled.div`
-  background-color: #F9FBFF;
+  background-color: #F6F9FF;
   width: 100vw;
   height: 100vh;
   display: flex;
