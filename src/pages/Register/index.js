@@ -14,7 +14,7 @@ const Register = () => {
   let values = [];
 
   const buttonValueSetting = (e) => {
-    let { name } = e.target;
+    const { name } = e.target;
     const belong = e.target.id;
     const value = e.target.value;
 

@@ -47,11 +47,11 @@ const Input = styled.input`
   border-radius: 20px;
 `;
 
-const LoginForm = (props: { setName: (name: string) => void }) => {
+const LoginForm = (props: { setName: (name: string) => void, setId: (id: String) => void }) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
-  const [cookies, setCookie] = useCookies(['id']);
+  const [cookies, setCookie] = useCookies([]);
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -60,6 +60,7 @@ const LoginForm = (props: { setName: (name: string) => void }) => {
       id, password
     }).then((res) => {
       setCookie(res.data.id, res.data.token)
+      props.setId(id)
       props.setName(res.data.name);
       setRedirect(true)
     }).catch((res) => {

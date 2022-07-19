@@ -83,7 +83,7 @@ const CustomMessageInput = () => {
 }
 
 
-const ChatClient = ({userToken}) => {
+const ChatClient = ({userToken,Id}) => {
   const [client, setClient] = useState(null);
   const [channel, setChanner] = useState(null);
   const [username, setUsername] = useState(userToken);

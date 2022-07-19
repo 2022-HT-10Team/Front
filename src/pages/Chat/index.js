@@ -16,12 +16,12 @@ const ChatForm = styled.div`
   width: 1240px;
 `
 
-const Chat = ({ name }) => {
+const Chat = ({ name,id }) => {
   return(
     <Container>
       <Nav />
       <ChatForm>
-        <ChatClient userToken={name}></ChatClient>
+        <ChatClient userToken={name} Id={id}></ChatClient>
       </ChatForm>
       <SideBar name={name}/>
     </Container> 

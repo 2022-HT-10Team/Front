@@ -2,19 +2,21 @@ import React, { useState, useEffect, useRef } from "react";
 import Peer from "simple-peer"
 import io  from "socket.io-client";
 
-const socket = io.connect('http://192.168.109.124:5000')
+const socket = io.connect('http://192.168.109.124:5000',{
+	cors:{ origin: '*'}
+})
 
-const VideoPlayer = () => {
-  const [me, setMe] = useState("")
-	const [stream, setStream] = useState()
-	const [receivingCall, setReceivingCall] = useState(false)
-	const [caller, setCaller] = useState("")
-	const [callerSignal, setCallerSignal] = useState()
-	const [callAccepted, setCallAccepted] = useState(false)
-	const [idToCall, setIdToCall] = useState("")
-	const [callEnded, setCallEnded] = useState(false)
-	const [name, setName] = useState("")
-	const [muted, setMuted] = useState(false)
+const App = () => {
+  const [ me, setMe ] = useState("")
+	const [ stream, setStream ] = useState()
+	const [ receivingCall, setReceivingCall ] = useState(false)
+	const [ caller, setCaller ] = useState("")
+	const [ callerSignal, setCallerSignal ] = useState()
+	const [ callAccepted, setCallAccepted ] = useState(false)
+	const [ idToCall, setIdToCall ] = useState("")
+	const [ callEnded, setCallEnded] = useState(false)
+	const [ name, setName ] = useState("")
+	const [ muted, setMuted ] = useState(false)
 	const myVideo = useRef()
 	const userVideo = useRef()
 	const connectionRef= useRef()
@@ -52,7 +54,9 @@ const VideoPlayer = () => {
 			})
 		})
 		peer.on("stream", (stream) => {
+			
 				userVideo.current.srcObject = stream
+			
 		})
 		socket.on("callAccepted", (signal) => {
 			setCallAccepted(true)
@@ -82,7 +86,6 @@ const VideoPlayer = () => {
 
 	const leaveCall = () => {
 		setCallEnded(true)
-    setCallAccepted(false)
 		connectionRef.current.destroy()
 	}
 
@@ -126,4 +129,4 @@ const VideoPlayer = () => {
 	)
 }
 
-export default VideoPlayer;
+export default App;
