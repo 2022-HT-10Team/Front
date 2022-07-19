@@ -21,6 +21,7 @@ const Text = styled.label`
 `;
 
 const Button = styled.button`
+  cursor: pointer;
   margin-top: 40px;
   width: 430px;
   height: 68px;

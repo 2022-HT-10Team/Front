@@ -42,7 +42,7 @@ const Register = () => {
   console.log(content);
 
   return(
-    <Container>
+    <Container Type={false}>
       {selectComponent[content]}
     </Container> 
   )

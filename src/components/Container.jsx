@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
@@ -84,7 +84,8 @@ const LinkText = styled(Link)`
   color: #455CEC;
 `
 
-const Container = ({ children}) => {
+const Container = ({ children, Type }) => {
+  console.log(Type)
   return(
     <Cont>
       <Box>
@@ -97,7 +98,7 @@ const Container = ({ children}) => {
             <LogoText>calling u</LogoText>
           </LogoBox>
           {children}
-          <Text>이미 회원이신가요?<LinkText to='/login'>로그인</LinkText></Text>
+          <Text>{ Type ? '아직 회원이 아니신가요?':'이미 회원이신가요?'}<LinkText to={Type ? '/register' : '/login'}>{Type ? '회원가입':'로그인'}</LinkText></Text>
         </MainBox>
       </Box>
     </Cont>
