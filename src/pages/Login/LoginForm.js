@@ -60,7 +60,7 @@ const LoginForm = (props: { setName: (name: string) => void }) => {
       id, password
     }).then((res) => {
       setCookie(res.data.id, res.data.token)
-      props.setName(id);
+      props.setName(res.data.name);
       setRedirect(true)
     }).catch((res) => {
       console.log(res)
