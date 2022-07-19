@@ -4,3 +4,4 @@ export {  default as Register } from "./Register";
 export {  default as Chat } from "./Chat";
 export {  default as VideoChat } from "./VideoChat";
 export {  default as Profile } from "./Profile";
+export {  default as FindUser } from "./FindUser";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
-import { Main, Login, Register, Chat, VideoChat, Profile } from "./pages/PageList";
+import { Main, Login, Register, Chat, VideoChat, Profile, FindUser } from "./pages/PageList";
 import { CookiesProvider } from "react-cookie";
 function App() {
   const [name, setName] = useState('');
@@ -17,6 +17,7 @@ function App() {
           <Route path="/chat" element={<Chat name={name}/>}/>
           <Route path="/video" element={<VideoChat/>}/>
           <Route path="/profile" element={<Profile name={name} id={id}/>}/>
+          <Route path="/finduser" element={<FindUser name={name}/>}/>
         </Routes>
       </Router>
     </CookiesProvider>

@@ -58,7 +58,7 @@ const NAV_ITEMS = [
   {
     text: '선배찾기',
     imgPath: 'People',
-    path: '/people',
+    path: '/finduser',
   },
   {
     text: '메세지',
