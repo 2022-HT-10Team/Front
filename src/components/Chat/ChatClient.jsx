@@ -45,7 +45,7 @@ const CustomHeaderPreview = (props: ChannelHeaderProps) => {
   const { name } = channel.data.name || {};
 
   const getPage = () => {
-    window.location.href="/video"
+    window.open("http://localhost:3000/video")
    }
 
   return (

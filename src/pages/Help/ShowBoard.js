@@ -124,18 +124,18 @@ const ShowBoard = () => {
   const [maping, setMaping] = useState(false);
 
   const bringGraduate = async () => {
-   await axios.get("http://192.168.109.124:8080/viewboard")
-        .then((res) => {
-            console.log(res.data.data)
-            setdtlist({
-                ItemList: res.data.data
-            });
-            if (res.data.data !== undefined){
-              setMaping(true)
-            }
-        }).catch((res) => {
-          console.log(res)
-        })
+  await axios.get("http://192.168.109.124:8080/viewboard")
+      .then((res) => {
+          console.log(res.data.data)
+          setdtlist({
+              ItemList: res.data.data
+          });
+          if (res.data.data !== undefined){
+            setMaping(true)
+          }
+      }).catch((res) => {
+        console.log(res)
+      })
   }
 
   const getContent = () => {
