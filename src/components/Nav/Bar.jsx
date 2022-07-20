@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.ul`
   list-style: none;
+  padding: 0;
 `;
 
 const ButtonBox = styled.div`
@@ -12,7 +13,7 @@ const ButtonBox = styled.div`
   height: 68px;
   background: ${(props) => (props.now ? '#455CEC' : 'white')};
   border-radius: 20px;
-  margin-top: 8px;
+  margin: 8px 0 0 28px;
   &:hover{
     background-color: #455CEC;
   }
@@ -42,6 +43,15 @@ const BarText = styled.li`
   ${ButtonBox}:hover & {
     color: white;
   }
+`;
+
+const Tran = styled.div`
+  position: absolute;
+  left: 0%;
+  height: 40px;
+  width: 6px;
+  background: #455CEC;
+  border-radius: 15px;
 `;
 
 const NAV_ITEMS = [
@@ -83,17 +93,23 @@ const Bar = () => {
   return(
     <Container>{NAV_ITEMS.map(({ text, imgPath, path }) => {
         return (
-          <ButtonBox key={path} now={location.pathname === path ? 1 : 0} >
-            <Link to={path}         
-                    style={{textDecoration: 'none',
-                            display: 'block',
-                            height: '68px' }}>
-              <BarBox>
-                <BarImg src={require('../../images/icon/' + imgPath + '.svg')} alt={text}/>
-                <BarText now={location.pathname === path ? 1 : 0}>{text}</BarText>
-              </BarBox>
-            </Link>
-          </ButtonBox>
+          <div style={{display: 'flex',
+                      position: 'relative',
+                      alignItems: 'center',
+                      width: '270px'}}>
+            {location.pathname === path ? <Tran></Tran> : null}
+            <ButtonBox key={path} now={location.pathname === path ? 1 : 0} >
+              <Link to={path}         
+                      style={{textDecoration: 'none',
+                              display: 'block',
+                              height: '68px' }}>
+                <BarBox>
+                  <BarImg src={require('../../images/icon/' + imgPath + '.svg')} alt={text}/>
+                  <BarText now={location.pathname === path ? 1 : 0}>{text}</BarText>
+                </BarBox>
+              </Link>
+            </ButtonBox>
+          </div>
         )})}
     </Container>
   )

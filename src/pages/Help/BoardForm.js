@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const BoardForm = ({id}) => {
   const [modal, setModal] = useState(false);
-  const [content, setContent] = useState('ShowBoard');
+  const [content, setContent] = useState('All');
   
   const buttonValueSetting = (e) => {
     const { name } = e.target;
@@ -25,7 +25,7 @@ const BoardForm = ({id}) => {
   };
 
   const selectComponent = {
-    ShowBoard: <ShowBoard click={buttonValueSetting}/>,
+    All: <ShowBoard click={buttonValueSetting}/>,
   };
 
   console.log(modal);
@@ -33,7 +33,7 @@ const BoardForm = ({id}) => {
   return(
     <Container>
       {modal && <Insert setModal={setModal} id={id}/>}
-      <Navigation />
+      <Navigation click={buttonValueSetting} content={content}/>
       {selectComponent[content]}
       <Bottom setModal={setModal}/>
     </Container>
