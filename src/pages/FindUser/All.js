@@ -78,6 +78,7 @@ const Button = styled.button`
 
 const All = () => {
   const [dtlist, setdtlist] = useState([]);
+  const [maping, setMaping] = useState(false);
 
   const bringGraduate = async () => {
    await axios
@@ -86,6 +87,9 @@ const All = () => {
             setdtlist({
                 ItemList: res.data.id
             });
+            if (res.data.id !== undefined){
+              setMaping(true)
+            }
         }).catch((res) => {
           console.log(res)
         })
@@ -95,11 +99,10 @@ const All = () => {
     bringGraduate(); 
   }, [])
 
-  console.log(dtlist)
   return(
     <Container>
       <div style={{marginLeft: '68px'}}>
-        {false && dtlist.ItemList.map(({name, cardinal, department, belong}) => 
+        {maping && dtlist.ItemList.map(({name, cardinal, department, belong}) => 
         <Box key={name}>
           <Img src={require('../../images/profile/1.svg').default} alt='프로필'/>
           <TextBox>

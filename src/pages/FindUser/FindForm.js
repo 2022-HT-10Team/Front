@@ -37,7 +37,7 @@ const FindForm = () => {
 
   return(
     <Container>
-      <Navigation click={buttonValueSetting}/>
+      <Navigation click={buttonValueSetting} content={content}/>
       {selectComponent[content]}
     </Container>
   )

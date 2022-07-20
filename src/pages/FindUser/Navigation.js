@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -13,7 +13,7 @@ const Button = styled.button`
   cursor: pointer;
   margin-left: 32px;
   height: 58px;
-  background: #FFFFFF;
+  background: ${(props) => (props.now ?'#455CEC' : 'white')};
   border: none;
   box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.04);
   border-radius: 20px;
@@ -29,6 +29,13 @@ const Text = styled.div`
   width: 20px;
   display: flex;
   align-items: center;
+`;
+
+const Text2 = styled.div`
+  white-space: nowrap;
+  margin-left: 10px;
+  cursor: pointer;
+  color: ${(props) => (props.now ?'white' : 'black')};
 `;
 
 const NAV_ITEMS = [
@@ -64,9 +71,11 @@ const NAV_ITEMS = [
   },
 ]
 
-const Navigation = ({click}) => {
+const Navigation = ({click, content}) => {
+
   return(
     <Container>{NAV_ITEMS.map(({text, imgPath, width}) => {
+      // {content === imgPath}
       return (
         <div key={text} style={{position :'relative'}}>
           <Text style={{width: '20px',
@@ -75,11 +84,13 @@ const Navigation = ({click}) => {
             <div>
               <img style={{cursor: 'pointer'}} src={require('../../images/icon/' + imgPath + '.svg')} alt={text}/>
             </div>
-            <div style={{whiteSpace: 'nowrap',
-                        marginLeft: '10px',
-                        cursor: 'pointer'}}>{text}</div>
+            <Text2 now={content === imgPath ? 1 : 0}>{text}</Text2>
           </Text>
-          <Button onClick={click} key={text} name={imgPath} style={{ width: width}}>
+          <Button onClick={click}
+                  key={text} 
+                  name={imgPath}
+                  now={content === imgPath ? 1 : 0}
+                  style={{ width: width}}>
           </Button>
         </div>
       )})}

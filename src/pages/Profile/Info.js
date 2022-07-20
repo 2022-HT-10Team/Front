@@ -62,7 +62,7 @@ const Text = styled.input`
   color: #444444;
 `;
 
-const Info = ({id}) => {
+const Info = ({id, pop}) => {
   const [cardinal, setcardinal] = useState('');
   const [name, setName] = useState('');
   const [belong, setBelong] = useState('');
@@ -80,7 +80,7 @@ const Info = ({id}) => {
       setdepartment(res.data.data.department)
     }
     init();
-  },[])
+  },[pop])
 
   return(
     <Container>

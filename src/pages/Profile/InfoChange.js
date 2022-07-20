@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
+import { Navigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -119,7 +120,7 @@ const ImgBox2 = styled.div`
   background-color: #F8F9FD;
 `;
 
-const InfoChange = ({getPop}) => {
+const InfoChange = (props : {getPop : any, setPop : Boolean => void}) => {
   const [id, setId] = useState('');
   const [belong, setBelong] = useState('');
   const [department, setdepartment] = useState('');
@@ -127,15 +128,16 @@ const InfoChange = ({getPop}) => {
   const submit = async(e: SyntheticEvent) => {
     e.preventDefault();
 
-    const res = await axios.post('http://192.168.109.124:8080/edituser',{
+    await axios.post('http://192.168.109.124:8080/edituser',{
       id,
       belong,
       department
+    }).then((res) => {
+      console.log(res)
+      props.setPop(false)
     })
 
-    console.log(res)
-    window.location.href="/profile"
-  }
+  } 
 
   return(
     <Container>
@@ -144,7 +146,7 @@ const InfoChange = ({getPop}) => {
           <FormBox onSubmit={submit}>
             <div style={{position: 'relative'}}>
               <Title>프로필 수정</Title>
-              <Img onClick={getPop} name={'true'} src={require('./../../images/X.png')} alt='창닫기'/>
+              <Img onClick={props.getPop} name={'true'} src={require('./../../images/X.png')} alt='창닫기'/>
               <ImgBox>
                 <div style={{position: 'relative'}}>
                   <img src={require('./../../images/profile.png')} alt='프로필'/>

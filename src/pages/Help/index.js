@@ -1,19 +1,19 @@
 import React from "react";
-import Nav from "../../components/Nav/Nav";
-import HelpForm from "./HelpForm";
 import styled from "styled-components";
+import Nav from "../../components/Nav/Nav";
 import SideBar from "../../components/sideBar/SideBar";
+import BoardForm from "./BoardForm";
 
 const Container = styled.div`
   display: flex;
 `;
 
-const Help = (props : { name: String }) => {
-  return (
+const Help = ({name, id}) => {
+  return(
     <Container>
       <Nav />
-      <HelpForm />
-      <SideBar name={props.name}/>
+      <BoardForm id={id}/>
+      <SideBar name={name}/>
     </Container>
   )
 }

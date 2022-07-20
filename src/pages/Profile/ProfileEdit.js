@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
+import { Navigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -104,6 +105,7 @@ const ProfileEdit = ({getPop}) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [chPassword, setChPassword] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   const submit = async(e: SyntheticEvent) => {
     e.preventDefault();
@@ -115,9 +117,11 @@ const ProfileEdit = ({getPop}) => {
         id, password
       })
       console.log(res)
-      window.location.href="/profile"
+      setRedirect(true)
       }
   }
+
+  if (redirect) return <Navigate replace to="/profile"/>
 
   return(
     <Container>

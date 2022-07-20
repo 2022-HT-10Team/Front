@@ -28,7 +28,7 @@ function App() {
           <Route path="/video" element={<VideoChat/>}/>
           <Route path="/profile" element={<Profile name={name} id={id}/>}/>
           <Route path="/finduser" element={<FindUser name={name}/>}/>
-          <Route path="/help" element={<Help name={name}/>}/>
+          <Route path="/help" element={<Help name={name} id={id}/>}/>
         </Routes>
       </Router>
     </CookiesProvider>

@@ -5,7 +5,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 431px;
+  height: 360px;
 `;
 
 const Box = styled.div`

@@ -12,7 +12,7 @@ const Title = styled.h2`
 const PeopleBox = styled.div`
   cursor: pointer;
   display: flex;
-  margin: 40px 0 0 68px;
+  margin: 30px 0 0 68px;
   width: 360px;
   height: 140px;
   background: #FFFFFF;

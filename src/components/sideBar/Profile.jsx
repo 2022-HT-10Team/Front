@@ -120,7 +120,7 @@ const Profile = ({name}) => {
         </Light>
         <Me>
           <img src={require('../../images/logo/Profile.svg').default} alt='프로필'/>
-          <UserName>{name || '테스트'}</UserName>
+          <UserName>{name || '김서현'}</UserName>
           <img src={require('../../images/icon/Extend.svg').default} alt='버튼'/>
         </Me>
       </MeBox>

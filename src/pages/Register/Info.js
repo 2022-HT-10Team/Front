@@ -32,7 +32,7 @@ const Input2 = styled.input`
 `;
 
 const Input3 = styled.input`
-  margin-top: 40px;
+  margin-top: 8px;
   width: 430px;
   height: 68px;
   border: 1px solid #A0A0A0;
@@ -55,6 +55,17 @@ const PaggingR = styled.button`
   align-items: center;
 `;
 
+const Text = styled.label`
+  white-space: nowrap;
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.02em;
+  color: #A0A0A0;
+`;
+
 const Info = ({click}) => {
   const [age, setAge] = useState('');
   const [name, setName] = useState('');
@@ -70,10 +81,32 @@ const Info = ({click}) => {
     <InfoBox>
       <InputBox>
         <div style={{width: '450px'}}>
-          <Input1 onChange={(e)=> setName(e.target.value)}/>
-          <Input2 onChange={(e)=> setAge(e.target.value)}/>
+          <div style={{display: 'flex'}}>
+            <div>
+              <div>
+                  <Text>이름</Text>
+              </div>
+              <Input1 onChange={(e)=> setName(e.target.value)}/>
+            </div>
+            <div>
+              <div style={{marginLeft: '40px'}}>
+                  <Text>기수</Text>
+              </div>
+                <Input2 onChange={(e)=> setAge(e.target.value)}/>
+            </div>
+          </div>
+          <div style={{marginTop: '20px'}}>
+              <Text>소속</Text>
+          </div>
+          <div>
           <Input3 onChange={(e)=> setNumber(e.target.value)}/>
+          </div>
+          <div style={{marginTop: '20px'}}>
+              <Text>전공</Text>
+          </div>
+          <div>
           <Input3 onChange={(e)=> setMajor(e.target.value)}/>
+          </div>
         </div>
       </InputBox>
       <PaggingR onClick={click} name={'Form'} value={all}>Next</PaggingR>
